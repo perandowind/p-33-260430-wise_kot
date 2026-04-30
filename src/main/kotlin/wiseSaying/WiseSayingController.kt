@@ -4,9 +4,6 @@ class WiseSayingController (
     private val wiseSayingService: WiseSayingService = WiseSayingService()
 ){
 
-    var lastId = 0
-    val wiseSayings = mutableListOf<WiseSaying>()
-
     fun write() {
         print("명언: ")
         val content = readln().trim()
