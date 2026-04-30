@@ -44,9 +44,18 @@ class App {
                 "삭제" -> { // 삭제?id=1
                     val id = rq.getParamAsInt("id", 0)
 
-                    wiseSayings.removeIf {
-                        it.id == id
+                    if (id == 0) {
+                        println("id를 입력해주세요.")
+                        continue
                     }
+                    // rst: boolean (삭제 성공 여부)
+                    val rst = wiseSayings
+                        .firstOrNull {
+                            it.id == id
+                        }
+                        ?.let {
+                            wiseSayings.remove(it)
+                        }
 
                     println("${id}번 명언이 삭제되었습니다.")
                 }
