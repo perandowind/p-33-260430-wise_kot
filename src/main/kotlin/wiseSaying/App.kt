@@ -48,16 +48,30 @@ class App {
                         println("id를 입력해주세요.")
                         continue
                     }
-                    // rst: boolean (삭제 성공 여부)
-                    val rst = wiseSayings
+
+                    wiseSayings
                         .firstOrNull {
                             it.id == id
                         }
                         ?.let {
                             wiseSayings.remove(it)
+                            println("${id}번 명언이 삭제되었습니다.")
                         }
+                        ?: println("${id}번 명언은 존재하지 않습니다.")
 
+                    /** 동일 기능
+                    val target = wiseSayings.firstOrNull {
+                        it.id == id
+                    }
+
+                    if (target == null) {
+                        println("${id}번 명언은 존재하지 않습니다.")
+                        continue
+                    }
+
+                    wiseSayings.remove(target)
                     println("${id}번 명언이 삭제되었습니다.")
+                    */
                 }
 
             }
