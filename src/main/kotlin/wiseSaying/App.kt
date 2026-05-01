@@ -6,15 +6,13 @@ class App {
     val systemController: SystemController = SystemController()
 
     fun run() {
-        var lastId = 0
-        val wiseSayings = mutableListOf<WiseSaying>()
 
         println("== 명언 앱 ==")
 
         while (true) {
             print("명령) ")
 
-            val input = readln()
+            val input = readln().trim()
             val rq = Rq(input)
 
             when (rq.action) {
